@@ -1,3 +1,4 @@
+/*
 package com.java.zad3b;
 
 public class Flower {
@@ -35,3 +36,4 @@ public class Flower {
         return color;
     }
 }
+*/

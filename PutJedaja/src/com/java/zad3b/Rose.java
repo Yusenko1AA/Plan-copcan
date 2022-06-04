@@ -1,3 +1,4 @@
+/*
 package com.java.zad3b;
 
 public class Rose extends Flower{
@@ -7,3 +8,4 @@ public class Rose extends Flower{
         super(price, name, color);
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.java.zad3b;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,3 +18,4 @@ public class Bouquet {
     }
 
 }
+*/

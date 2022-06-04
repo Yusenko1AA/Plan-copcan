@@ -1,3 +1,4 @@
+/*
 package com.java.zad3b;
 
 public class Main {
@@ -16,3 +17,4 @@ public class Main {
 
     }
 }
+*/

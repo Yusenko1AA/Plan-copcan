@@ -1,13 +1,13 @@
 package com.java.zad3e;
 
-public class Room implements IAddRoom {
+public class Room implements IAddRoom, Comparable<Room> {
 
         StatusRoom statusRoom;
         private int stars;
         private int sleepPlace;
-        private double price;
+        private int price;
 
-    public Room(StatusRoom statusRoom,int stars, int sleepPlace, double price) {
+    public Room(StatusRoom statusRoom,int stars, int sleepPlace, int price) {
         this.statusRoom = statusRoom;
         this.stars = stars;
         this.sleepPlace = sleepPlace;
@@ -43,8 +43,33 @@ public class Room implements IAddRoom {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
+    }
+
+
+    @Override
+    public int compareTo(Room r1) {
+        return this.stars - r1.stars;
+    }
+
+    @Override
+    public int compareTo1(Room r3) {
+        return this.price - r3.price;
+    }
+
+    @Override
+    public int compareTo2(Room r3) {
+        return this.sleepPlace - r3.sleepPlace;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "stars=" + stars +
+                ", sleepPlace=" + sleepPlace +
+                ", price=" + price +
+                '}';
     }
 }
 

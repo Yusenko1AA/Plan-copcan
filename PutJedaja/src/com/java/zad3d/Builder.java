@@ -1,3 +1,4 @@
+/*
 package com.java.zad3d;
 //Интерфейс Строителя объявляет все возможные этапы и шаги конфигурации продукта.
 public interface Builder {
@@ -7,3 +8,4 @@ public interface Builder {
     void setEngine(Engine engine);
     void setBody(Body body);
 }
+*/

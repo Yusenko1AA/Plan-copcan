@@ -1,3 +1,4 @@
+/*
 package com.java.zad3d;
 
 public class Body {
@@ -15,3 +16,4 @@ public class Body {
         Color = color;
     }
 }
+*/

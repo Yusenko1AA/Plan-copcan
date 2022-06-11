@@ -1,3 +1,4 @@
+/*
 package com.java.zad3d;
 // Мэйн-класс. Здесь всё сводится воедино.
 
@@ -20,3 +21,4 @@ public class CarFactory {
         System.out.println("Цвет кузова:\n" + car.getBody());
     }
 }
+*/

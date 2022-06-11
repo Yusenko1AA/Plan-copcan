@@ -1,3 +1,4 @@
+/*
 package com.java.zad3d;
 // Автомобиль — это класс продукта.
 public class Car {
@@ -36,3 +37,4 @@ public class Car {
         return body;
     }
 }
+*/

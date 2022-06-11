@@ -1,3 +1,4 @@
+/*
 package com.java.zad3d;
 // Двигатель
 public class Engine {
@@ -27,3 +28,4 @@ public class Engine {
     // System.out.println(Enginetype + volume + HP);
     // }
 }
+*/

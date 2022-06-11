@@ -1,3 +1,4 @@
+/*
 package com.java.zad3d;
 
 //Конкретные строители реализуют шаги, объявленные в общем интерфейсе.
@@ -33,3 +34,4 @@ public class CarBuilder implements Builder {
         return new Car(type, chassis, transmission, engine, body);
     }
 }
+*/

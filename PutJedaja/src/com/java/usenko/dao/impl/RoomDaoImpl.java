@@ -1,8 +1,8 @@
 package com.java.usenko.dao.impl;
 
 import com.java.usenko.dao.RoomDao;
-import com.java.usenko.entity.Client;
 import com.java.usenko.entity.Room;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,12 +53,6 @@ public class RoomDaoImpl implements RoomDao {
         oldRoom.setSleepPlace(roomToUpdate.getSleepPlace());
         oldRoom.setStars(roomToUpdate.getStars());
     }
-
-    @Override
-    public void addClientToRoom(Long clientId, Long roomId) {
-        Room room  = get(roomId);
-        client.setRoom(room);
-        room.getClients().add(client);
-    }
-
 }
+
+

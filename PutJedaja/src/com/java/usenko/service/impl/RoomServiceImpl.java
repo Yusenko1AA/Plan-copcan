@@ -4,6 +4,7 @@ import com.java.usenko.comparator.RoomByPriceComparator;
 import com.java.usenko.comparator.RoomBySleepPlaceComparator;
 import com.java.usenko.comparator.RoomByStarsComparator;
 import com.java.usenko.dao.ClientDao;
+import com.java.usenko.dao.MaintenanceDao;
 import com.java.usenko.dao.RoomDao;
 import com.java.usenko.entity.Client;
 import com.java.usenko.entity.Room;
@@ -15,10 +16,12 @@ import java.util.List;
 
 public class RoomServiceImpl implements RoomService {
     RoomDao roomDao;
+    MaintenanceDao maintenanceDao;
     ClientDao clientDao;
 
-    public RoomServiceImpl(RoomDao roomDao, ClientDao clientDao) {
+    public RoomServiceImpl(RoomDao roomDao, MaintenanceDao maintenanceDao, ClientDao clientDao) {
         this.roomDao = roomDao;
+        this.maintenanceDao = maintenanceDao;
         this.clientDao = clientDao;
     }
 
@@ -74,6 +77,11 @@ public class RoomServiceImpl implements RoomService {
         return getAllFreeSortedBy(new RoomByStarsComparator());
     }
 
+    @Override
+    public int getSizeFreeRooms(){
+        return roomDao.getAllFreePlaces().size();
+    }
+
     private List<Room> getAllSortedBy(Comparator<Room> comparator) {
         List<Room> rooms = roomDao.getAll();
         rooms.sort(comparator);
@@ -85,4 +93,5 @@ public class RoomServiceImpl implements RoomService {
         freeRooms.sort(comparator);
         return freeRooms;
     }
+
 }

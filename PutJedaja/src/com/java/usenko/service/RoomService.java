@@ -1,5 +1,6 @@
 package com.java.usenko.service;
 
+import com.java.usenko.entity.Client;
 import com.java.usenko.entity.Room;
 import com.java.usenko.entity.RoomStatus;
 
@@ -15,4 +16,5 @@ public interface RoomService {
     List<Room> getFreeRoomsSortedByPrice();
     List<Room> getFreeRoomsSortedBySleepPlace();
     List<Room> getFreeRoomsSortedByStars();
+    int getSizeFreeRooms();
 }

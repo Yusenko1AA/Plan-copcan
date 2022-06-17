@@ -2,12 +2,12 @@ package com.java.usenko.dao.impl;
 
 import com.java.usenko.dao.MaintenanceDao;
 import com.java.usenko.entity.Maintenance;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MaintenanceDaoImpl implements MaintenanceDao {
     private List<Maintenance> maintenances = new ArrayList<>();
-
 
     @Override
     public void add(Maintenance maintenance) {

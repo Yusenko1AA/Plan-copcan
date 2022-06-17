@@ -37,7 +37,6 @@ public class ClientDaoImpl implements ClientDao {
     public void update(Long clientID, Client clientToUpdate) {
         Client oldClient = get(clientID);
         oldClient.setName(clientToUpdate.getName());
-        oldClient.setAge(clientToUpdate.getAge());
     }
     }
 

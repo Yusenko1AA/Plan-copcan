@@ -5,6 +5,10 @@ public class Maintenance {
     TypeMaintenance typeService;
     private int price;
 
+    public Maintenance(){
+
+    }
+
     public Maintenance(Long id, TypeMaintenance typeService, int price) {
         this.id = id;
         this.typeService = typeService;

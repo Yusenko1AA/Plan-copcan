@@ -1,8 +1,6 @@
 package com.java.usenko.service.impl;
 
-import com.java.usenko.comparator.ClientByAlphabetComparator;
-import com.java.usenko.comparator.ClientByEndDateComparator;
-import com.java.usenko.comparator.ClientByStartDateComparator;
+import com.java.usenko.comparator.*;
 import com.java.usenko.dao.ClientDao;
 import com.java.usenko.entity.Client;
 import com.java.usenko.entity.Maintenance;
@@ -65,6 +63,23 @@ public class ClientServiceImpl implements ClientService {
         roomPrice = roomPrice * diff;
 
         return maintenancePrice + roomPrice;
+    }
+
+    @Override
+    public List<Maintenance> getClientsMaintenanceSortedByPrice(Long clientId) {
+        Client client = clientDao.get(clientId);
+        List<Maintenance> maintenances = new ArrayList<>(client.getMaintenances());
+        maintenances.sort(new MaintenanceByPriceComparator());
+        return maintenances;
+
+    }
+
+    @Override
+    public List<Maintenance> getClientsMaintenanceSortedByDate(Long clientId) {
+        Client client = clientDao.get(clientId);
+        List<Maintenance> maintenances = new ArrayList<>(client.getMaintenances());
+        maintenances.sort(new MaintenanceByDateComparator());
+        return maintenances;
     }
 
     private List<Client> getAllSortedBy(Comparator<Client> comparator) {

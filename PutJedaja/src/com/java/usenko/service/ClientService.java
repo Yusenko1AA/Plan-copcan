@@ -1,6 +1,7 @@
 package com.java.usenko.service;
 
 import com.java.usenko.entity.Client;
+import com.java.usenko.entity.Maintenance;
 
 import java.util.List;
 
@@ -16,4 +17,8 @@ public interface ClientService {
     int getSizeClients();
 
     long amountOfPayment(Long clientId);
+
+    List<Maintenance> getClientsMaintenanceSortedByPrice(Long clientId);
+
+    List<Maintenance> getClientsMaintenanceSortedByDate(Long clientId);
 }

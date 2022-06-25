@@ -1,18 +1,21 @@
 package com.java.usenko.entity;
 
+import java.util.Date;
+
 public class Maintenance {
     private Long id;
     MaintenanceType maintenanceType;
     private int price;
+    private Date date;
 
     public Maintenance(){
-
     }
 
-    public Maintenance(Long id, MaintenanceType maintenanceType, int price) {
+    public Maintenance(Long id, MaintenanceType maintenanceType, int price, Date date) {
         this.id = id;
         this.maintenanceType = maintenanceType;
         this.price = price;
+        this.date = date;
     }
 
     public Long getId() {
@@ -37,6 +40,14 @@ public class Maintenance {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
 

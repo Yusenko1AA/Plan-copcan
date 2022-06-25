@@ -17,4 +17,5 @@ public interface RoomService {
     List<Room> getFreeRoomsSortedBySleepPlace();
     List<Room> getFreeRoomsSortedByStars();
     int getSizeFreeRooms();
+    void showRoom(Long roomId);
 }

@@ -37,7 +37,7 @@ public class MaintenanceDaoImpl implements MaintenanceDao {
     @Override
     public void update(Long maintenanceID, Maintenance maintenanceToUpdate) {
         Maintenance oldMaintenance = get(maintenanceID);
-        oldMaintenance.setTypeService(maintenanceToUpdate.getTypeService());
+        oldMaintenance.setMaintenanceType(maintenanceToUpdate.getMaintenanceType());
         oldMaintenance.setPrice(maintenanceToUpdate.getPrice());
     }
 }

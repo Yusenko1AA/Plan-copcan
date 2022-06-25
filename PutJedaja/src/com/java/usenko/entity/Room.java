@@ -12,6 +12,18 @@ public class Room {
     private int price;
     private List<Client> clients = new ArrayList<>();
 
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", roomStatus=" + roomStatus +
+                ", stars=" + stars +
+                ", sleepPlace=" + sleepPlace +
+                ", price=" + price +
+                ", clients=" + clients +
+                '}';
+    }
+
     public Room() {
 
     }

@@ -1,6 +1,8 @@
 package com.java.usenko.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Client {
     private Long id;
@@ -8,6 +10,7 @@ public class Client {
     private Date startDate;
     private Date endDate;
     private Room room;
+    private List<Maintenance> maintenances = new ArrayList<>();
 
     public Client() {
     }
@@ -59,5 +62,14 @@ public class Client {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+    public List<Maintenance> getMaintenances() {
+        return maintenances;
+    }
+
+    public void setMaintenances(List<Maintenance> maintenances) {
+        this.maintenances = maintenances;
+    }
 }
+
 

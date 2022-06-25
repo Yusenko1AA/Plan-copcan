@@ -5,11 +5,13 @@ import com.java.usenko.comparator.ClientByEndDateComparator;
 import com.java.usenko.comparator.ClientByStartDateComparator;
 import com.java.usenko.dao.ClientDao;
 import com.java.usenko.entity.Client;
+import com.java.usenko.entity.Maintenance;
 import com.java.usenko.service.ClientService;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ClientServiceImpl implements ClientService {
     private ClientDao clientDao;
@@ -29,15 +31,15 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<Client> getClientSortedByEndDate() {
+    public List<Client> getClientsSortedByEndDate() {
         return getAllSortedBy(new ClientByEndDateComparator());
     }
 
     @Override
     public List<Client> getThreeLastClients() {
-        List<Client> clients = getClientSortedByEndDate();
+        List<Client> clients = getClientsSortedByEndDate();
         List<Client> lastThreeClients = new ArrayList<>();
-        for(int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 3; i++) {
             lastThreeClients.add(clients.get(clients.size() - i));
         }
         return lastThreeClients;
@@ -46,6 +48,23 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public int getSizeClients() {
         return clientDao.getAll().size();
+    }
+
+    @Override
+    public long amountOfPayment(Long clientId) {
+        Client client = clientDao.get(clientId);
+
+        int maintenancePrice = 0;
+        for (Maintenance maintenance : client.getMaintenances()) {
+            maintenancePrice = maintenancePrice + maintenance.getPrice();
+        }
+
+        long roomPrice = client.getRoom().getPrice();
+        long diffInMillies = Math.abs(client.getEndDate().getTime() - client.getStartDate().getTime());
+        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+        roomPrice = roomPrice * diff;
+
+        return maintenancePrice + roomPrice;
     }
 
     private List<Client> getAllSortedBy(Comparator<Client> comparator) {

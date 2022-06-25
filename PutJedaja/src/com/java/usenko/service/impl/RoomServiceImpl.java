@@ -78,8 +78,14 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public int getSizeFreeRooms(){
+    public int getSizeFreeRooms() {
         return roomDao.getAllFreePlaces().size();
+    }
+
+    @Override
+    public void showRoom(Long roomId) {
+        Room room = roomDao.get(roomId);
+        System.out.println(room);
     }
 
     private List<Room> getAllSortedBy(Comparator<Room> comparator) {

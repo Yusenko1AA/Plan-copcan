@@ -2,16 +2,16 @@ package com.java.usenko.entity;
 
 public class Maintenance {
     private Long id;
-    TypeMaintenance typeService;
+    MaintenanceType maintenanceType;
     private int price;
 
     public Maintenance(){
 
     }
 
-    public Maintenance(Long id, TypeMaintenance typeService, int price) {
+    public Maintenance(Long id, MaintenanceType maintenanceType, int price) {
         this.id = id;
-        this.typeService = typeService;
+        this.maintenanceType = maintenanceType;
         this.price = price;
     }
 
@@ -23,12 +23,12 @@ public class Maintenance {
         this.id = id;
     }
 
-    public TypeMaintenance getTypeService() {
-        return typeService;
+    public MaintenanceType getMaintenanceType() {
+        return maintenanceType;
     }
 
-    public void setTypeService(TypeMaintenance typeService) {
-        this.typeService = typeService;
+    public void setMaintenanceType(MaintenanceType maintenanceType) {
+        this.maintenanceType = maintenanceType;
     }
 
     public int getPrice() {

@@ -6,8 +6,14 @@ import java.util.List;
 
 public interface ClientService {
     List<Client> getClientsSortedByAlphabet();
+
     List<Client> getClientsSortedByStartDate();
-    List<Client> getClientSortedByEndDate();
+
+    List<Client> getClientsSortedByEndDate();
+
     List<Client> getThreeLastClients();
+
     int getSizeClients();
+
+    long amountOfPayment(Long clientId);
 }

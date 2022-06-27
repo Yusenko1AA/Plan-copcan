@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Client {
-    private Long id;
+public class Client extends AbstractEntity {
     private String name;
     private Date startDate;
     private Date endDate;
@@ -15,20 +14,11 @@ public class Client {
     public Client() {
     }
 
-    public Client(Long id, String name, Date startDate, Date endDate, Room room) {
-        this.id = id;
+    public Client(String name, Date startDate, Date endDate, Room room) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
         this.room = room;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

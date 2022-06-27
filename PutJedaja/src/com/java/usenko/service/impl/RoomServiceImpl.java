@@ -26,6 +26,11 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    public void create(Room room) {
+        roomDao.add(room);
+    }
+
+    @Override
     public void addClientToRoom(Long clientId, Long roomId) {
         Room room = roomDao.get(roomId);
         Client client = clientDao.get(clientId);
@@ -86,6 +91,11 @@ public class RoomServiceImpl implements RoomService {
     public void showRoom(Long roomId) {
         Room room = roomDao.get(roomId);
         System.out.println(room);
+    }
+
+    @Override
+    public Room getById(Long roomId) {
+        return roomDao.get(roomId);
     }
 
     private List<Room> getAllSortedBy(Comparator<Room> comparator) {

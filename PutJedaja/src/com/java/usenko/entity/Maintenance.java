@@ -2,8 +2,7 @@ package com.java.usenko.entity;
 
 import java.util.Date;
 
-public class Maintenance {
-    private Long id;
+public class Maintenance extends AbstractEntity {
     MaintenanceType maintenanceType;
     private int price;
     private Date date;
@@ -11,19 +10,10 @@ public class Maintenance {
     public Maintenance(){
     }
 
-    public Maintenance(Long id, MaintenanceType maintenanceType, int price, Date date) {
-        this.id = id;
+    public Maintenance (MaintenanceType maintenanceType, int price, Date date) {
         this.maintenanceType = maintenanceType;
         this.price = price;
         this.date = date;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public MaintenanceType getMaintenanceType() {

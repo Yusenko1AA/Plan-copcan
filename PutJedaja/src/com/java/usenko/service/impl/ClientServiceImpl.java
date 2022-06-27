@@ -49,7 +49,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public long amountOfPayment(Long clientId) {
+    public double amountOfPayment(Long clientId) {
         Client client = clientDao.get(clientId);
 
         int maintenancePrice = 0;
@@ -57,7 +57,7 @@ public class ClientServiceImpl implements ClientService {
             maintenancePrice = maintenancePrice + maintenance.getPrice();
         }
 
-        long roomPrice = client.getRoom().getPrice();
+        double roomPrice = client.getRoom().getPrice();
         long diffInMillies = Math.abs(client.getEndDate().getTime() - client.getStartDate().getTime());
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
         roomPrice = roomPrice * diff;

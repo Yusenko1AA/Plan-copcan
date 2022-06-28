@@ -6,8 +6,6 @@ import com.java.usenko.gui.Action;
 import com.java.usenko.service.RoomService;
 import com.java.usenko.util.ScannerUtil;
 
-import java.util.Scanner;
-
 public class CreateRoomAction implements Action {
 
     private final RoomService roomService;

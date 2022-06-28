@@ -87,4 +87,9 @@ public class ClientServiceImpl implements ClientService {
         clients.sort(comparator);
         return clients;
     }
+
+    @Override
+    public void create(Client client) {
+        clientDao.add(client);
+    }
 }

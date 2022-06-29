@@ -10,7 +10,12 @@ import com.java.usenko.dao.impl.RoomDaoImpl;
 import com.java.usenko.gui.Builder;
 import com.java.usenko.gui.MenuController;
 import com.java.usenko.gui.Navigator;
+import com.java.usenko.gui.action.HotelProvider;
+import com.java.usenko.service.ClientService;
+import com.java.usenko.service.MaintenanceService;
 import com.java.usenko.service.RoomService;
+import com.java.usenko.service.impl.ClientServiceImpl;
+import com.java.usenko.service.impl.MaintenanceServiceImpl;
 import com.java.usenko.service.impl.RoomServiceImpl;
 
 public abstract class E_Administrator {
@@ -19,9 +24,13 @@ public abstract class E_Administrator {
         MaintenanceDao maintenanceDao = new MaintenanceDaoImpl();
         ClientDao clientDao = new ClientDaoImpl();
         RoomService roomService = new RoomServiceImpl(roomDao, maintenanceDao, clientDao);
-        Builder builder = new Builder(roomService);
+        MaintenanceService maintenanceService = new MaintenanceServiceImpl(maintenanceDao);
+        ClientService clientService = new ClientServiceImpl(clientDao);
+        HotelProvider hotelProvider = new HotelProvider(roomService, clientService, maintenanceService);
+
+        Builder builder = new Builder(hotelProvider);
         Navigator navigator = new Navigator();
-        MenuController menuController = new MenuController(builder, navigator);
+        MenuController menuController = new MenuController(builder, navigator, hotelProvider);
         menuController.run();
     }
 }

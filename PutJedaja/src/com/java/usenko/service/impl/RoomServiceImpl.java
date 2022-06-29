@@ -19,6 +19,10 @@ public class RoomServiceImpl implements RoomService {
     MaintenanceDao maintenanceDao;
     ClientDao clientDao;
 
+    public RoomServiceImpl(){
+
+    }
+
     public RoomServiceImpl(RoomDao roomDao, MaintenanceDao maintenanceDao, ClientDao clientDao) {
         this.roomDao = roomDao;
         this.maintenanceDao = maintenanceDao;

@@ -1,15 +1,27 @@
 package com.java.usenko.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
 public class ScannerUtil {
-    private Date startDate;
-    private Date endDate;
-    // нужен ли тут конструктор?
-    public ScannerUtil (){
+    private static final String DATE_FORMAT = "dd/MM/yyyy";
 
+    private ScannerUtil () {
+    }
+
+    public static long readLong() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите ID: ");
+        String result = scanner.nextLine();
+        scanner.close();
+        try {
+            return Long.parseLong(result);
+        } catch (NumberFormatException e) {
+            System.out.println("введен неверный формат числа");
+            return readLong();
+        }
     }
 
     public static String readString() {
@@ -32,7 +44,6 @@ public class ScannerUtil {
 
     public static double readDouble() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите стоимость: ");
         String result = scanner.nextLine();
         scanner.close();
         try {
@@ -42,23 +53,16 @@ public class ScannerUtil {
             return readDouble();
         }
     }
-    // моя попытка сделать сканеры дат
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+
+    public static Date readDate() {
+        System.out.println("Формат даты: " + DATE_FORMAT);
+        Scanner scanner = new Scanner(System.in);
+        try {
+            return new SimpleDateFormat(DATE_FORMAT).parse(scanner.nextLine());
+        } catch (ParseException e) {
+            System.out.println("введен неверный формат даты");
+            return readDate();
+        }
     }
 
-    public void readStartDate() throws Exception {
-        String dateFormat = "dd/MM/yyyy";
-        Scanner scanner = new Scanner(System.in);
-        setStartDate(new SimpleDateFormat(dateFormat).parse(scanner.nextLine()));
-    }
-
-    public void readEndDate() throws Exception {
-        String dateFormat = "dd/MM/yyyy";
-        Scanner scanner = new Scanner(System.in);
-        setEndDate(new SimpleDateFormat(dateFormat).parse(scanner.nextLine()));
-    }
 }

@@ -27,4 +27,8 @@ public class Menu {
     public void setMenuItems(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
     }
+
+    public void addItem (MenuItem menuItem){
+        this.menuItems.add(menuItem);
+    }
 }

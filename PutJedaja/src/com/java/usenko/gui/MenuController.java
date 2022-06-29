@@ -1,5 +1,7 @@
 package com.java.usenko.gui;
 
+import com.java.usenko.gui.action.HotelProvider;
+
 import java.util.Scanner;
 
 public class MenuController {
@@ -7,9 +9,10 @@ public class MenuController {
     private Builder builder;
     private Navigator navigator;
 
-    public MenuController(Builder builder, Navigator navigator) {
+    public MenuController(Builder builder, Navigator navigator, HotelProvider hotelProvider) {
         this.builder = builder;
         this.navigator = navigator;
+       // AbstractAction.initializeHotelProvider(hotelProvider);
     }
 
     public void run() {

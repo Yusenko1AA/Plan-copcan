@@ -32,7 +32,6 @@ public class CreateRoomAction extends AbstractAction implements Action {
         room.setStars(star);
         room.setSleepPlace(sleepPlace);
         room.setPrice(price);
-        // исправил но правильно ли?
         getHotelProvider().getRoomService().create(room);
     }
 }

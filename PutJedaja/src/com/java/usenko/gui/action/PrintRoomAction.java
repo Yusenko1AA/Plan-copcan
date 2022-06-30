@@ -4,7 +4,6 @@ import com.java.usenko.entity.Room;
 import com.java.usenko.gui.Action;
 import com.java.usenko.util.ScannerUtil;
 
-
 public class PrintRoomAction extends AbstractAction implements Action {
     public PrintRoomAction(HotelProvider hotelProvider) {
         super(hotelProvider);

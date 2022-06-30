@@ -32,6 +32,16 @@ public class MaintenanceServiceImpl implements MaintenanceService {
         return getAllSortedBy(new MaintenanceByDateComparator());
     }
 
+    @Override
+    public Maintenance getById(Long maintenanceId) {
+        return maintenanceDao.get(maintenanceId);
+    }
+
+    @Override
+    public void create(Maintenance maintenance) {
+        maintenanceDao.add(maintenance);
+    }
+
     private List<Maintenance> getAllSortedBy(Comparator<Maintenance> comparator) {
         List<Maintenance> maintenances = maintenanceDao.getAll();
         maintenances.sort(comparator);

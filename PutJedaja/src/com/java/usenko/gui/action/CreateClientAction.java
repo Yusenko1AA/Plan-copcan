@@ -1,11 +1,12 @@
 package com.java.usenko.gui.action;
 
 import com.java.usenko.entity.Client;
+import com.java.usenko.gui.Action;
 import com.java.usenko.util.ScannerUtil;
 
 import java.util.Date;
 
-public class CreateClientAction extends AbstractAction {
+public class CreateClientAction extends AbstractAction implements Action {
 
     public CreateClientAction(HotelProvider hotelProvider) {
         super(hotelProvider);
@@ -13,6 +14,8 @@ public class CreateClientAction extends AbstractAction {
 
     @Override
     public void execute() {
+        Client client = new Client();
+
         System.out.println("Введите имя клиента");
         String name = ScannerUtil.readString();
         System.out.println("Введите дату заселения");
@@ -20,7 +23,6 @@ public class CreateClientAction extends AbstractAction {
         System.out.println("Введите дату выселения");
         Date endDate = ScannerUtil.readDate();
 
-        Client client = new Client();
         client.setName(name);
         client.setStartDate(startDate);
         client.setEndDate(endDate);

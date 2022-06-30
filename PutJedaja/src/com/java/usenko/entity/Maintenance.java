@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Maintenance extends AbstractEntity {
     MaintenanceType maintenanceType;
-    private int price;
+    private double price;
     private Date date;
 
     public Maintenance(){
@@ -24,11 +24,11 @@ public class Maintenance extends AbstractEntity {
         this.maintenanceType = maintenanceType;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

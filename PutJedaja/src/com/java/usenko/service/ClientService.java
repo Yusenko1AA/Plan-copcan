@@ -22,5 +22,7 @@ public interface ClientService {
 
     List<Maintenance> getClientsMaintenanceSortedByDate(Long clientId);
 
+    Client getById(Long clientId);
+
     void create(Client client);
 }

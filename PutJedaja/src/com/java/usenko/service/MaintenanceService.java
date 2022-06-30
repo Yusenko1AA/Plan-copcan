@@ -6,6 +6,12 @@ import java.util.List;
 
 public interface MaintenanceService {
     List<Maintenance> getMaintenanceSortedByPrice();
+
     List<Maintenance> getMaintenanceSortedByType();
+
     List<Maintenance> getMaintenanceSortedByDate();
+
+    Maintenance getById (Long maintenanceId);
+
+    void create (Maintenance maintenance);
 }

@@ -54,7 +54,7 @@ public class ClientServiceImpl implements ClientService {
 
         int maintenancePrice = 0;
         for (Maintenance maintenance : client.getMaintenances()) {
-            maintenancePrice = maintenancePrice + maintenance.getPrice();
+            maintenancePrice = (int) (maintenancePrice + maintenance.getPrice());
         }
 
         double roomPrice = client.getRoom().getPrice();
@@ -80,6 +80,11 @@ public class ClientServiceImpl implements ClientService {
         List<Maintenance> maintenances = new ArrayList<>(client.getMaintenances());
         maintenances.sort(new MaintenanceByDateComparator());
         return maintenances;
+    }
+
+    @Override
+    public Client getById(Long clientId) {
+        return clientDao.get(clientId);
     }
 
     private List<Client> getAllSortedBy(Comparator<Client> comparator) {

@@ -14,7 +14,6 @@ public class CreateRoomAction extends AbstractAction implements Action {
 
     @Override
     public void execute() {
-        //TODO: считать кол-во звезд, цену, спальные места
         Room room = new Room();
 
         System.out.println("Установите статус комнаты: | available | serviced | repaired |");

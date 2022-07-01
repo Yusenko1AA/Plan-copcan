@@ -1,4 +1,4 @@
-package com.java.usenko.zad3e;
+package com.java.usenko.main;
 
 
 import com.java.usenko.dao.ClientDao;
@@ -30,7 +30,7 @@ public abstract class E_Administrator {
 
         Builder builder = new Builder(hotelProvider);
         Navigator navigator = new Navigator();
-        MenuController menuController = new MenuController(builder, navigator, hotelProvider);
+        MenuController menuController = new MenuController(builder, navigator);
         menuController.run();
     }
 }

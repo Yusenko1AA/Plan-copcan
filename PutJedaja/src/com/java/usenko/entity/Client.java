@@ -14,6 +14,18 @@ public class Client extends AbstractEntity {
     public Client() {
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", room=" + room +
+                ", maintenances=" + maintenances +
+                '}';
+    }
+
     public Client(String name, Date startDate, Date endDate, Room room) {
         this.name = name;
         this.startDate = startDate;

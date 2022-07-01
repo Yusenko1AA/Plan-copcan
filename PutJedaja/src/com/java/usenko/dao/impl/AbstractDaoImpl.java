@@ -8,10 +8,11 @@ import java.util.List;
 
 public abstract class AbstractDaoImpl<T extends AbstractEntity> implements AbstractDao<T> {
     private final List<T> entities = new ArrayList<>();
+    private Long idSequence = 0L;
 
     @Override
     public void add(T entity) {
-        //TODO: сгенерить идшник
+        entity.setId(++idSequence);
         entities.add(entity);
     }
 

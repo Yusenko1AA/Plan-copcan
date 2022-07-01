@@ -1,18 +1,15 @@
 package com.java.usenko.gui;
 
-import com.java.usenko.gui.action.HotelProvider;
-
-import java.util.Scanner;
+import com.java.usenko.util.ScannerUtil;
 
 public class MenuController {
 
     private Builder builder;
     private Navigator navigator;
 
-    public MenuController(Builder builder, Navigator navigator, HotelProvider hotelProvider) {
+    public MenuController(Builder builder, Navigator navigator) {
         this.builder = builder;
         this.navigator = navigator;
-       // AbstractAction.initializeHotelProvider(hotelProvider);
     }
 
     public void run() {
@@ -22,9 +19,7 @@ public class MenuController {
         int currentIndex = 0;
         while (currentIndex != -1) {
             navigator.printMenu();
-            //TODO: считать с консоли индекс
-            Scanner scanner = new Scanner(System.in);
-            currentIndex = scanner.nextInt();
+            currentIndex = ScannerUtil.readInt();
             navigator.navigate(currentIndex);
         }
     }

@@ -15,7 +15,6 @@ public class ScannerUtil {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите ID: ");
         String result = scanner.nextLine();
-        scanner.close();
         try {
             return Long.parseLong(result);
         } catch (NumberFormatException e) {
@@ -27,13 +26,13 @@ public class ScannerUtil {
     public static String readString() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
+
     }
 
     public static int readInt() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите число: ");
         String result = scanner.nextLine();
-        scanner.close();
         try {
             return Integer.parseInt(result);
         } catch (NumberFormatException e) {
@@ -45,7 +44,6 @@ public class ScannerUtil {
     public static double readDouble() {
         Scanner scanner = new Scanner(System.in);
         String result = scanner.nextLine();
-        scanner.close();
         try {
             return Double.parseDouble(result);
         } catch (NumberFormatException e) {

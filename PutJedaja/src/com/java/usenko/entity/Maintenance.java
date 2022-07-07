@@ -10,6 +10,16 @@ public class Maintenance extends AbstractEntity {
     public Maintenance(){
     }
 
+    @Override
+    public String toString() {
+        return "Maintenance{" +
+                "id=" + id +
+                ", maintenanceType=" + maintenanceType +
+                ", price=" + price +
+                ", date=" + date +
+                '}';
+    }
+
     public Maintenance (MaintenanceType maintenanceType, int price, Date date) {
         this.maintenanceType = maintenanceType;
         this.price = price;

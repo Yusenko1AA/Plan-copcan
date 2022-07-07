@@ -2,6 +2,8 @@ package com.java.usenko.gui;
 
 import com.java.usenko.util.ScannerUtil;
 
+import java.io.FileNotFoundException;
+
 public class MenuController {
 
     private Builder builder;
@@ -12,7 +14,7 @@ public class MenuController {
         this.navigator = navigator;
     }
 
-    public void run() {
+    public void run() throws FileNotFoundException {
         builder.buildMenu();
         Menu rootMenu = builder.getRootMenu();
         navigator.setCurrentMenu(rootMenu);

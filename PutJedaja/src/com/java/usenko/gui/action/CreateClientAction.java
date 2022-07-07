@@ -16,6 +16,8 @@ public class CreateClientAction extends AbstractAction implements Action {
     public void execute() {
         Client client = new Client();
 
+        System.out.println("Введите идшник клиента");
+        long id = ScannerUtil.readLong();
         System.out.println("Введите имя клиента");
         String name = ScannerUtil.readString();
         System.out.println("Введите дату заселения");

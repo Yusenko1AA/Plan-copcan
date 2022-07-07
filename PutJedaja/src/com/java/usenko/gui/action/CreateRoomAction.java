@@ -16,6 +16,9 @@ public class CreateRoomAction extends AbstractAction implements Action {
     public void execute() {
         Room room = new Room();
 
+        System.out.println("Введите идшник комнаты");
+        long id = ScannerUtil.readLong();
+
         System.out.println("Установите статус комнаты: | available | serviced | repaired |");
         String value = ScannerUtil.readString();
         RoomStatus status = RoomStatus.getValueOf(value);

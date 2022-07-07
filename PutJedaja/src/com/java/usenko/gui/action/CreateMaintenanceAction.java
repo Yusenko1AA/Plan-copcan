@@ -16,6 +16,9 @@ public class CreateMaintenanceAction extends AbstractAction implements Action {
     public void execute() {
         Maintenance maintenance = new Maintenance();
 
+        System.out.println("Введите идшник сервиса");
+        long id = ScannerUtil.readLong();
+
         System.out.println("Введите тип услуги: | massage | cleaning | alcohol | food |");
         String value = ScannerUtil.readString();
         MaintenanceType status = MaintenanceType.getValueOf(value);

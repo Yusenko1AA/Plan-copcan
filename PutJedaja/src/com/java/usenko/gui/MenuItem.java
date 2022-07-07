@@ -1,5 +1,7 @@
 package com.java.usenko.gui;
 
+import java.io.FileNotFoundException;
+
 public class MenuItem {
     private String title;
     private Action action;
@@ -35,7 +37,7 @@ public class MenuItem {
         this.nextMenu = nextMenu;
     }
 
-    public void doAction() {
+    public void doAction() throws FileNotFoundException {
         if (action != null) {
             action.execute();
         }

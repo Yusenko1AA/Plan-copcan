@@ -10,8 +10,7 @@ public class PrintClientAction extends AbstractAction implements Action {
     }
 
     @Override
-    public void execute() {
-
+    public void execute()  {
         System.out.println("Введите идшник клиента");
         long id = ScannerUtil.readLong();
 

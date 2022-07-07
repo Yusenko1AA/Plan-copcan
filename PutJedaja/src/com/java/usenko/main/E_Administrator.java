@@ -18,8 +18,10 @@ import com.java.usenko.service.impl.ClientServiceImpl;
 import com.java.usenko.service.impl.MaintenanceServiceImpl;
 import com.java.usenko.service.impl.RoomServiceImpl;
 
+import java.io.FileNotFoundException;
+
 public abstract class E_Administrator {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         RoomDao roomDao = new RoomDaoImpl();
         MaintenanceDao maintenanceDao = new MaintenanceDaoImpl();
         ClientDao clientDao = new ClientDaoImpl();

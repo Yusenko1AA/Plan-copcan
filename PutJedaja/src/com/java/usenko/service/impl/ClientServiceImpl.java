@@ -1,5 +1,6 @@
 package com.java.usenko.service.impl;
 
+import com.java.usenko.annotations.ConfigProperty;
 import com.java.usenko.comparator.*;
 import com.java.usenko.dao.ClientDao;
 import com.java.usenko.entity.Client;
@@ -13,6 +14,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ClientServiceImpl implements ClientService {
     private ClientDao clientDao;
+
+    @ConfigProperty("client.history.number")
+    private Integer availableClientsAmountInHistory;
 
     public ClientServiceImpl(ClientDao clientDao) {
         this.clientDao = clientDao;

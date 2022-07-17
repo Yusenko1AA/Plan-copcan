@@ -1,5 +1,6 @@
 package com.java.usenko.service.impl;
 
+import com.java.usenko.annotations.ConfigProperty;
 import com.java.usenko.comparator.RoomByPriceComparator;
 import com.java.usenko.comparator.RoomBySleepPlaceComparator;
 import com.java.usenko.comparator.RoomByStarsComparator;
@@ -18,6 +19,9 @@ public class RoomServiceImpl implements RoomService {
     RoomDao roomDao;
     MaintenanceDao maintenanceDao;
     ClientDao clientDao;
+
+    @ConfigProperty("changing.room.status.enabled")
+    private Boolean isChangeRoomStatusAvailable;
 
     public RoomServiceImpl(){
 

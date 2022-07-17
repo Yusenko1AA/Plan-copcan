@@ -3,13 +3,11 @@ package com.java.usenko.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Room {
-
-    private Long id;
+public class Room  extends AbstractEntity {
     private RoomStatus roomStatus;
     private int stars;
     private int sleepPlace;
-    private int price;
+    private double price;
     private List<Client> clients = new ArrayList<>();
 
     @Override
@@ -28,8 +26,7 @@ public class Room {
 
     }
 
-    public Room(Long id, RoomStatus roomStatus, int stars, int sleepPlace, int price) {
-        this.id = id;
+    public Room(RoomStatus roomStatus, int stars, int sleepPlace, int price) {
         this.roomStatus = roomStatus;
         this.stars = stars;
         this.sleepPlace = sleepPlace;
@@ -42,14 +39,6 @@ public class Room {
 
     public void setClients(List<Client> clients) {
         this.clients = clients;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public RoomStatus getRoomStatus() {
@@ -76,11 +65,11 @@ public class Room {
         this.sleepPlace = sleepPlace;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

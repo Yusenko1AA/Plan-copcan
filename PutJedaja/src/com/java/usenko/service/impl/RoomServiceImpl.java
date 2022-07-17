@@ -1,5 +1,6 @@
 package com.java.usenko.service.impl;
 
+import com.java.usenko.annotations.ConfigProperty;
 import com.java.usenko.comparator.RoomByPriceComparator;
 import com.java.usenko.comparator.RoomBySleepPlaceComparator;
 import com.java.usenko.comparator.RoomByStarsComparator;
@@ -19,10 +20,22 @@ public class RoomServiceImpl implements RoomService {
     MaintenanceDao maintenanceDao;
     ClientDao clientDao;
 
+    @ConfigProperty("changing.room.status.enabled")
+    private Boolean isChangeRoomStatusAvailable;
+
+    public RoomServiceImpl(){
+
+    }
+
     public RoomServiceImpl(RoomDao roomDao, MaintenanceDao maintenanceDao, ClientDao clientDao) {
         this.roomDao = roomDao;
         this.maintenanceDao = maintenanceDao;
         this.clientDao = clientDao;
+    }
+
+    @Override
+    public void create(Room room) {
+        roomDao.add(room);
     }
 
     @Override
@@ -86,6 +99,11 @@ public class RoomServiceImpl implements RoomService {
     public void showRoom(Long roomId) {
         Room room = roomDao.get(roomId);
         System.out.println(room);
+    }
+
+    @Override
+    public Room getById(Long roomId) {
+        return roomDao.get(roomId);
     }
 
     private List<Room> getAllSortedBy(Comparator<Room> comparator) {

@@ -1,5 +1,6 @@
 package com.java.usenko.service.impl;
 
+import com.java.usenko.annotations.ConfigProperty;
 import com.java.usenko.comparator.*;
 import com.java.usenko.dao.ClientDao;
 import com.java.usenko.entity.Client;
@@ -13,6 +14,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ClientServiceImpl implements ClientService {
     private ClientDao clientDao;
+
+    @ConfigProperty("client.history.number")
+    private Integer availableClientsAmountInHistory;
 
     public ClientServiceImpl(ClientDao clientDao) {
         this.clientDao = clientDao;
@@ -49,15 +53,15 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public long amountOfPayment(Long clientId) {
+    public double amountOfPayment(Long clientId) {
         Client client = clientDao.get(clientId);
 
         int maintenancePrice = 0;
         for (Maintenance maintenance : client.getMaintenances()) {
-            maintenancePrice = maintenancePrice + maintenance.getPrice();
+            maintenancePrice = (int) (maintenancePrice + maintenance.getPrice());
         }
 
-        long roomPrice = client.getRoom().getPrice();
+        double roomPrice = client.getRoom().getPrice();
         long diffInMillies = Math.abs(client.getEndDate().getTime() - client.getStartDate().getTime());
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
         roomPrice = roomPrice * diff;
@@ -82,9 +86,19 @@ public class ClientServiceImpl implements ClientService {
         return maintenances;
     }
 
+    @Override
+    public Client getById(Long clientId) {
+        return clientDao.get(clientId);
+    }
+
     private List<Client> getAllSortedBy(Comparator<Client> comparator) {
         List<Client> clients = clientDao.getAll();
         clients.sort(comparator);
         return clients;
+    }
+
+    @Override
+    public void create(Client client) {
+        clientDao.add(client);
     }
 }

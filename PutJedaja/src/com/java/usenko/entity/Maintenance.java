@@ -2,28 +2,28 @@ package com.java.usenko.entity;
 
 import java.util.Date;
 
-public class Maintenance {
-    private Long id;
+public class Maintenance extends AbstractEntity {
     MaintenanceType maintenanceType;
-    private int price;
+    private double price;
     private Date date;
 
     public Maintenance(){
     }
 
-    public Maintenance(Long id, MaintenanceType maintenanceType, int price, Date date) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Maintenance{" +
+                "id=" + id +
+                ", maintenanceType=" + maintenanceType +
+                ", price=" + price +
+                ", date=" + date +
+                '}';
+    }
+
+    public Maintenance (MaintenanceType maintenanceType, int price, Date date) {
         this.maintenanceType = maintenanceType;
         this.price = price;
         this.date = date;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public MaintenanceType getMaintenanceType() {
@@ -34,11 +34,11 @@ public class Maintenance {
         this.maintenanceType = maintenanceType;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

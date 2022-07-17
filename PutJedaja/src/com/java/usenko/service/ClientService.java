@@ -16,9 +16,13 @@ public interface ClientService {
 
     int getSizeClients();
 
-    long amountOfPayment(Long clientId);
+    double amountOfPayment(Long clientId);
 
     List<Maintenance> getClientsMaintenanceSortedByPrice(Long clientId);
 
     List<Maintenance> getClientsMaintenanceSortedByDate(Long clientId);
+
+    Client getById(Long clientId);
+
+    void create(Client client);
 }

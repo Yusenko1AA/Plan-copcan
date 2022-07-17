@@ -1,5 +1,7 @@
 package com.java.usenko.gui;
 
+import java.io.FileNotFoundException;
+
 public interface Action {
-    void execute();
+    void execute() throws FileNotFoundException;
 }

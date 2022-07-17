@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Plan-copcan:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Plan_copcan_jar</output-path>
+    <root id="archive" name="Plan-copcan.jar">
+      <element id="module-output" name="PutJedaja" />
+    </root>
+  </artifact>
+</component>

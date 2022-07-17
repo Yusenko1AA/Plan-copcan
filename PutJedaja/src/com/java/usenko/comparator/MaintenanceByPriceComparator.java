@@ -7,6 +7,6 @@ import java.util.Comparator;
 public class MaintenanceByPriceComparator implements Comparator<Maintenance> {
     @Override
     public int compare(Maintenance o1, Maintenance o2) {
-        return o1.getPrice() - o2.getPrice();
+        return ((int) (o1.getPrice() - o2.getPrice()));
     }
 }
